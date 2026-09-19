@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于我 | 玻璃晶体 · 3D 拖拽</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="stage" id="stage">
+    <!-- 氛围光斑 -->
+    <div class="ambient">
+      <span class="orb o1"></span>
+      <span class="orb o2"></span>
+      <span class="orb o3"></span>
+    </div>
+
+    <!-- 操作提示 -->
+    <div class="hud">
+      <div class="hud-title">玻璃晶体 · 个人空间</div>
+      <ul class="hud-tips">
+        <li>🖱️ 拖拽晶体 — 自由移动每块卡片</li>
+        <li>🌐 拖拽空白处 — 旋转整个场景</li>
+        <li>🔍 滚轮 — 缩放景深</li>
+      </ul>
+      <button class="reset" id="reset">重置布局</button>
+    </div>
+
+    <div class="crystals" id="crystals">
+      <!-- Hero 晶体 -->
+      <div class="crystal" data-key="hero" style="--x:0px; --y:-40px; --z:80px;">
+        <div class="crystal-inner hero">
+          <div class="avatar">
+            <svg viewBox="0 0 200 200" width="120" height="120" role="img" aria-label="一只可爱的黄黑配小猫">
+              <path d="M45 62 L63 30 Q70 46 70 62 Z" fill="#ffca28" />
+              <path d="M155 62 L137 30 Q130 46 130 62 Z" fill="#ffca28" />
+              <polygon points="45,60 63,32 70,60" fill="#1a1612" opacity=".5"/>
+              <ellipse cx="100" cy="108" rx="56" ry="48" fill="#ffca28" />
+              <polygon points="52,55 63,40 66,58" fill="#ffb3c6" opacity=".8"/>
+              <polygon points="148,55 137,40 134,58" fill="#ffb3c6" opacity=".8"/>
+              <ellipse cx="80" cy="102" rx="9" ry="12" fill="#2a2016" />
+              <ellipse cx="120" cy="102" rx="9" ry="12" fill="#2a2016" />
+              <circle cx="64" cy="118" r="10" fill="#ff8ab3" opacity=".45"/>
+              <circle cx="136" cy="118" r="10" fill="#ff8ab3" opacity=".45"/>
+              <path d="M94 116 L106 116 L100 124 Z" fill="#ff7a9c" />
+              <path d="M100 124 Q93 133 86 130" stroke="#2a2016" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M100 124 Q107 133 114 130" stroke="#2a2016" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <g stroke="#2a2016" stroke-width="1.6" stroke-linecap="round" opacity=".7">
+                <path d="M78 122 L48 120"/><path d="M78 127 L48 130"/>
+                <path d="M122 122 L152 120"/><path d="M122 127 L152 130"/>
+              </g>
+            </svg>
+          </div>
+          <h1>嗨，我是 <span class="accent">开发者</span></h1>
+          <p class="tagline">热爱代码、设计与解决问题的工程师</p>
+        </div>
+      </div>
+
+      <!-- About 晶体 -->
+      <div class="crystal" data-key="about" style="--x:-320px; --y:120px; --z:10px;">
+        <div class="crystal-inner">
+          <h2 class="section-title">我是谁</h2>
+          <div class="card">
+            <p>我是一名全栈工程师，专注于把复杂的问题拆成清晰的方案，用简洁优雅的代码构建出好用又好看的产品。</p>
+            <p>我相信好工程来自对细节的克制、对用户需求的尊重，以及一点点对技术的热爱。</p>
+          </div>
+          <ul class="facts">
+            <li>📍 所在地：地球某处 · 远程友好</li>
+            <li>☕ 状态：永远需要一杯咖啡</li>
+            <li>💡 座右铭：KISS — 保持简单</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Skills 晶体 -->
+      <div class="crystal" data-key="skills" style="--x:320px; --y:90px; --z:40px;">
+        <div class="crystal-inner">
+          <h2 class="section-title">技能栈</h2>
+          <div class="stats">
+            <div><b>9+</b><span>年经验</span></div>
+            <div><b>100+</b><span>项目交付</span></div>
+            <div><b>∞</b><span>热爱咖啡</span></div>
+          </div>
+          <div class="bars">
+            <div class="bar"><span>JavaScript / TypeScript</span><div class="track"><i data-w="92%"></i></div></div>
+            <div class="bar"><span>React / Vue / Node</span><div class="track"><i data-w="88%"></i></div></div>
+            <div class="bar"><span>系统设计 / 架构</span><div class="track"><i data-w="80%"></i></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact 晶体 -->
+      <div class="crystal" data-key="contact" style="--x:0px; --y:260px; --z:-30px;">
+        <div class="crystal-inner">
+          <h2 class="section-title">联系我</h2>
+          <p class="muted">有合作想法？随时发消息给我 ☀️</p>
+          <div class="links-col">
+            <a href="mailto:hi@example.com" class="link-card">✉️ 邮件<br><small>hi@example.com</small></a>
+            <a href="#about" target="_blank" class="link-card">💼 GitHub</a>
+            <a href="#about" target="_blank" class="link-card">🌐 主页</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="foot">用心构建 · © 2026 · 拖动我，探索这个玻璃空间</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
